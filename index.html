@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aplicativo Web</title>
+  
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Aplicativo Web</h1>
+
+  <!-- Formulario de Doctores -->
+  <h2>Formulario de Doctores</h2>
+  <form id="doctor-form">
+    <label for="doctor-name">Nombre:</label>
+    <input type="text" id="doctor-name" required>
+    <br>
+
+    <label for="doctor-lastname">Apellido:</label>
+    <input type="text" id="doctor-lastname" required>
+    <br>
+
+    <label for="doctor-cedula">Número de Cédula:</label>
+    <input type="text" id="doctor-cedula" required>
+    <br>
+
+    <label for="doctor-specialty">Especialidad:</label>
+    <select id="doctor-specialty" required>
+      <option value="">Seleccionar especialidad</option>
+      <option value="Medicina general">Medicina general</option>
+      <option value="Cardiología">Cardiología</option>
+      <option value="Medicina interna">Medicina interna</option>
+      <option value="Dermatología">Dermatología</option>
+      <option value="Rehabilitación física">Rehabilitación física</option>
+      <option value="Psicología">Psicología</option>
+      <option value="Odontología">Odontología</option>
+      <option value="Radiología">Radiología</option>
+    </select>
+    <br>
+
+    <label for="doctor-office">Consultorio:</label>
+    <input type="text" id="doctor-office" required>
+    <br>
+
+    <label for="doctor-email">Correo de contacto:</label>
+    <input type="email" id="doctor-email" required>
+    <br>
+
+    <input type="submit" value="Guardar">
+  </form>
+
+  <!-- Formulario de Pacientes -->
+  <h2>Formulario de Pacientes</h2>
+  <form id="patient-form">
+    <label for="patient-name">Nombre:</label>
+    <input type="text" id="patient-name" required>
+    <br>
+
+    <label for="patient-lastname">Apellido:</label>
+    <input type="text" id="patient-lastname" required>
+    <br>
+
+    <label for="patient-cedula">Número de Cédula:</label>
+    <input type="text" id="patient-cedula" required>
+    <br>
+
+    <label for="patient-age">Edad:</label>
+    <input type="number" id="patient-age" required>
+    <br>
+
+    <label for="patient-phone">Teléfono:</label>
+    <input type="text" id="patient-phone" required>
+    <br>
+
+    <label for="patient-specialty">Especialidad requerida:</label>
+    <select id="patient-specialty" required>
+      <option value="">Seleccionar especialidad</option>
+      <option value="Medicina general">Medicina general</option>
+      <option value="Cardiología">Cardiología</option>
+      <input type="submit" value="Guardar">
+    </form>
