@@ -1,0 +1,56 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
+const app = express();
+const port = 3000;
+
+// Configuración para parsear el contenido JSON de las peticiones
+app.use(bodyParser.json());
+
+// Configurar conexión a la base de datos MySQL
+const db = mysql.createConnection({
+  host: '3306',
+  user: 'root',
+  password: '123456',
+  database: 'bd_optica_verona'
+});
+
+// Conexión a la base de datos
+db.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('Conexión a la base de datos establecida');
+});
+
+// Ruta para guardar un nuevo doctor
+app.post('/doctores', (req, res) => {
+  const { nombre, apellido, especialidad, consultorio, correo } = req.body;
+  const query = `INSERT INTO doctores (nombre, apellido, especialidad, consultorio, correo) VALUES (?, ?, ?, ?, ?)`;
+  db.query(query, [nombre, apellido, especialidad, consultorio, correo], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error al guardar el doctor en la base de datos');
+    } else {
+      res.status(201).send('Doctor guardado exitosamente');
+    }
+  });
+});
+
+// Ruta para obtener el listado de doctores
+app.get('/doctores', (req, res) => {
+  db.query('SELECT * FROM doctores', (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error al obtener el listado de doctores');
+    } else {
+      res.json(result);
+    }
+  });
+});
+
+// Iniciar el servidor
+app.listen(port, () => {
+  console.log(`Servidor escuchando en http://localhost:${port}`);
+});
